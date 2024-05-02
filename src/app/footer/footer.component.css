@@ -1,0 +1,54 @@
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer {
+  position: relative;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.hidden {
+  display: none;
+}
+
+.animated {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filters {
+  transition: all 0.3s ease;
+  padding: 0;
+  list-style-type: none;
+}
+
+.filters li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.filters a {
+  padding: 10px;
+  text-decoration: none;
+  color: #555;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.filters a.selected {
+  color: #fff;
+  background-color: #007bff;
+}

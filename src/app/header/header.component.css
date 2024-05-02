@@ -1,0 +1,63 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #2f98b3; /* Green color */
+  color: #fff;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 36px;
+}
+
+.new-todo {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+}
+
+.new-todo::placeholder {
+  color: #ccc;
+}
+
+.new-todo:focus {
+  outline: none;
+}
+
+.new-todo:focus::placeholder {
+  color: transparent;
+}
+
+.new-todo:hover {
+  transform: scale(1.05);
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}

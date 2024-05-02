@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TodosService } from '../Services/todos.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +11,17 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
 
-  // private todosService = inject(TodosService);
+  private todosService = inject(TodosService);
+  text:string = '';
 
-  title = '';
-
+  changeText(event:Event){
+    this.text = (<HTMLInputElement>event.target).value;
+  }
   addTodo() {
-    if (this.title) {
-      // this.todosService.addItem(this.title);
-
-      // Reset title to clear input field.
-      this.title = '';
+    if (this.text) {
+      this.todosService.addTodo(this.text);
+      this.text = ''; // Reset text to clear input field.
     }
   }
+
 }

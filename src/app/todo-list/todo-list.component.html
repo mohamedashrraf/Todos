@@ -1,1 +1,20 @@
-<p>todo-list works!</p>
+<div class="container">
+@if (todosService.todoSig().length > 0) {
+  <main class="main">
+    <!-- <div class="toggle-all-container">
+      <input class="toggle-all" type="checkbox" (change)="toggleAll($event)" [checked]="!activeTodos.length" />
+      <label class="toggle-all-label" htmlFor="toggle-all">Toggle All Input</label>
+    </div> -->
+    <ul class="todo-list">
+            <!-- @for (todo of todosService.todoSig(); track $index) { بدل مانستخدم كل العناصر اللي بتتحط نحط العناصر بعد الفلتر-->
+      @for (todo of visibleTodos(); track $index) {
+              <app-todo-item></app-todo-item>
+        <li class="todo-item">
+          {{todo.text}}
+          <!-- <app-todo-item [todo]="todo" (remove)="removeTodo($event)" /> -->
+        </li>
+      }
+    </ul>
+  </main>
+}
+</div>
