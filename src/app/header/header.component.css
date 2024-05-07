@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
@@ -7,7 +7,7 @@
 .header {
   text-align: center;
   padding: 20px 10px;
-  background-color: #2f98b3; /* Green color */
+  background-color: #2f98b3;
   color: #fff;
 }
 
@@ -60,4 +60,4 @@
 
 .fadeIn {
   animation-name: fadeIn;
-}
+} */

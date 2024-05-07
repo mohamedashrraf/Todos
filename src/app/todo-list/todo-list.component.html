@@ -1,20 +1,19 @@
-<div class="container">
-@if (todosService.todoSig().length > 0) {
-  <main class="main">
-    <!-- <div class="toggle-all-container">
-      <input class="toggle-all" type="checkbox" (change)="toggleAll($event)" [checked]="!activeTodos.length" />
-      <label class="toggle-all-label" htmlFor="toggle-all">Toggle All Input</label>
-    </div> -->
-    <ul class="todo-list">
-            <!-- @for (todo of todosService.todoSig(); track $index) { بدل مانستخدم كل العناصر اللي بتتحط نحط العناصر بعد الفلتر-->
-      @for (todo of visibleTodos(); track $index) {
-              <app-todo-item></app-todo-item>
-        <li class="todo-item">
-          {{todo.text}}
-          <!-- <app-todo-item [todo]="todo" (remove)="removeTodo($event)" /> -->
-        </li>
-      }
-    </ul>
-  </main>
-}
-</div>
+<section class="main" [ngClass]="{ hidden: noTodosClass() }">
+  <input
+    id="toggle-all"
+    class="toggle-all"
+    type="checkbox"
+    [checked]="isAllTodosSelected()"
+    (change)="toggleAllTodos($event)"
+  />
+  <label for="toggle-all">Mark all as completed</label>
+      <ul class="todo-list">
+              <!-- @for (todo of todosService.todoSig(); track $index) { بدل مانستخدم كل العناصر اللي بتتحط نحط العناصر بعد الفلتر-->
+        @for (todo of visibleTodos(); track $index) {
+          <app-todo-item [todo]="todo"
+            [isEditing]="editingId === todo.id"
+            (setEditingId)="setEditingId($event)">
+          </app-todo-item>
+        }
+      </ul>
+  </section>
